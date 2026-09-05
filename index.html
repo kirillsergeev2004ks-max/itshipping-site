@@ -112,6 +112,7 @@ strong,b{font-weight:700}
   .topbar .btn-orange{display:none}
   .top-login{font-size:15px;padding:8px 10px;font-size:0}
   .top-login::after{content:"Инструкция";font-size:15px}
+  .top-login{margin-left:10px}
 }
 
 /* ---------- hero ---------- */
@@ -247,7 +248,8 @@ h2{font-weight:800;letter-spacing:-.03em;font-size:clamp(30px,4vw,50px);line-hei
 .principles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 28px}
 @media (max-width:560px){.principles{grid-template-columns:1fr}}
 .pr .mark{width:30px;height:3px;background:var(--orange);border-radius:99px;margin-bottom:12px}
-.pr h3{font-weight:800;font-size:18px;letter-spacing:-.015em;margin-bottom:6px}
+.pr h3{font-weight:800;font-size:18px;letter-spacing:-.015em;margin-bottom:6px;min-height:2.4em}
+@media (max-width:860px){.pr h3{min-height:0}}
 .pr p{color:#C9C9CE;font-size:14.5px}
 .stock{position:relative;border-radius:var(--r);overflow:hidden;background:var(--cloud);box-shadow:0 30px 60px rgba(0,0,0,.35)}
 .stock img{width:100%;aspect-ratio:1/1;object-fit:cover}
@@ -465,7 +467,7 @@ footer .glyph{color:var(--white)}
       <div class="principles">
         <div class="pr reveal"><div class="mark" aria-hidden="true"></div><h3>Сначала обследование</h3><p>Смотрим, как всё устроено: как считается ставка, как двигается контейнер, где теряется время. Система строится под процесс, а не наоборот.</p></div>
         <div class="pr reveal d1"><div class="mark" aria-hidden="true"></div><h3>Ваши серверы, ваши данные</h3><p>Разворачиваем систему на ваших серверах. Данные не уезжают в чужие облака, резервная копия каждый день.</p></div>
-        <div class="pr reveal d2"><div class="mark" aria-hidden="true"></div><h3>Первая версия через несколько недель</h3><p>Срок называем после обследования. Дальше дорабатываем по замечаниям людей, которые в системе работают.</p></div>
+        <div class="pr reveal d2"><div class="mark" aria-hidden="true"></div><h3>Первая версия за недели, не месяцы</h3><p>Точный срок называем после обследования. Дальше дорабатываем по замечаниям людей, которые в системе работают.</p></div>
         <div class="pr reveal d3"><div class="mark" aria-hidden="true"></div><h3>Система становится вашей</h3><p>Контрактная разработка и лицензия, а не подписка, которую могут отключить. Исходный код и документация у вас.</p></div>
       </div>
       <figure class="stock reveal d1">
@@ -508,7 +510,7 @@ footer .glyph{color:var(--white)}
       <p class="lead">Ассистент не поможет, если ставки лежат в письмах, а парк в десяти Excel. Сначала порядок в ставках, парке и документах. Ассистенты потом, на этих данных.</p>
     </div>
     <div class="next-grid">
-      <div class="nx reveal"><h3>Данные вместо переписки</h3><p>Ставки, букинги, контейнеры и документы структурированы, с историей и ролями. То, что можно спросить, а не искать.</p></div>
+      <div class="nx reveal"><h3>Данные вместо переписки</h3><p>Ставки, букинги, контейнеры и документы структурированы, с историей и ролями. Тогда можно спросить «где сейчас контейнер по договору № 12», а не искать в письмах.</p></div>
       <div class="nx reveal d1"><h3>Стороны обмениваются напрямую</h3><p>Линия, терминал, экспедитор, оператор ЭДО и клиент обмениваются данными из систем, а не через «перешлите ещё раз».</p></div>
       <div class="nx reveal d2"><h3>Ассистенты на живых данных</h3><p>Считают, проверяют комплект документов, напоминают о сроках. На ваших серверах, под вашим контролем.</p></div>
     </div>
@@ -598,7 +600,7 @@ footer .glyph{color:var(--white)}
 
   /* активная вкладка по секции */
   var links=[].slice.call(document.querySelectorAll('.nav a'));
-  var secs=links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var secs=links.map(function(a){ var h=a.getAttribute('href')||''; return h.charAt(0)==='#'?document.querySelector(h):null; });
   var ticking=false;
   function sync(){
     var y=innerHeight*.35, cur=-1;
