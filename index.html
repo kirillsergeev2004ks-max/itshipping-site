@@ -142,7 +142,7 @@ h1 .k{color:inherit}
 .hero-lead{font-size:18px;color:var(--muted);max-width:32em;margin-bottom:30px}
 .hero-cta{display:flex;gap:14px 22px;align-items:center;flex-wrap:wrap}
 .hero-facts{margin-top:28px;max-width:36em;font-size:16px;line-height:1.5;color:var(--muted)}
-.hero-visual{position:relative;justify-self:center;width:min(118%,660px);margin:-8% -4% -8% 0;aspect-ratio:1;animation:float 8s ease-in-out infinite}
+.hero-visual{position:relative;justify-self:center;width:min(92%,520px);margin:-2% 0;aspect-ratio:1;animation:float 8s ease-in-out infinite}
 .hero-stage{display:grid;width:100%;animation:settle .9s var(--ease) both;animation-delay:.1s}
 .hero-stage > *{grid-area:1/1;width:100%;height:auto}
 /* один срежиссированный момент на странице: строки первого экрана поднимаются, объект садится на место */
@@ -156,13 +156,13 @@ h1 .k{color:inherit}
 @media (max-width:860px){
   .hero{padding-top:36px}
   .hero-grid{grid-template-columns:1fr;gap:20px}
-  .hero-visual{width:min(68%,300px);order:-1;margin:-2% auto 0}
+  .hero-visual{width:min(56%,240px);order:-1;margin:0 auto}
   h1{font-size:clamp(40px,10.5vw,60px)}
 }
 /* низкие телефоны (iPhone SE 375×667): лид и кнопка в первом экране (техаудит R2) */
 @media (max-width:860px) and (max-height:740px){
   .hero{padding-top:20px}
-  .hero-visual{width:min(52%,220px)}
+  .hero-visual{width:min(44%,190px)}
   h1{margin:12px 0 14px}
   .hero-lead{margin-bottom:22px}
 }
